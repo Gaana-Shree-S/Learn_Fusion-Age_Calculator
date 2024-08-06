@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="style.css">
+        <title>AGE-CALCI</title>
+    </head>
+    <body>
+        <nav id="navbar">
+            <ul>
+                <li class="item"><a href="#home">Home</a></li>
+                <li class="item"><a href="#calculator">Calculator</a></li>
+            </ul>
+        </nav>
+        <section id="home">
+            <h1>AGE-CALCI</h1>
+            <p> AGE-CALCI it is a free website that allows you to calculate your age upto date.</p>
+        </section>
+        <section id="calculator">
+            <h3 class="h-primary">CALCULATE !!!</h3>
+            <div class="container">
+                <div class="form-group">
+                    <label for="date">Select your date of birth:</label>
+                    <input type="date" id="date" name="date">
+                </div>
+                <div class="form-group">
+                    <button type="submit" onclick="calculateAge()">Submit</button>
+                </div>
+                <div id="result"></div>
+            </div>
+         </section>
+    <script>
+        function calculateAge() {
+            const dob = document.getElementById('date').value;
+            if (dob) {
+                const dobDate = new Date(dob);
+                const today = new Date();
+                let age = today.getFullYear() - dobDate.getFullYear();
+                const m = today.getMonth() - dobDate.getMonth();
+                if (m < 0 || (m === 0 && today.getDate() < dobDate.getDate())) {
+                    age--;
+                }
+                document.getElementById('result').innerText = `Your age is ${age} years.`;
+            } else {
+                document.getElementById('result').innerText = 'Please select a valid date of birth.';
+            }
+        }
+    </script>
+
+
+
+
+
+
+    </body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</html>
